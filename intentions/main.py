@@ -34,13 +34,13 @@ class when(AbstractIntention):
 
 class case(AbstractIntention):
     """
-    "When" intention implementation.
+    "case" intention implementation.
     """
     pass
 
 
 class expect(AbstractIntention):
     """
-    "When" intention implementation.
+    "expect" intention implementation.
     """
     pass
