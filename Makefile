@@ -5,7 +5,6 @@ get-project-version:
 
 install-requirements:
 	pip3 install \
-	    -r requirements/project.txt \
 	    -r requirements/dev.txt \
 	    -r requirements/ops.txt
 
