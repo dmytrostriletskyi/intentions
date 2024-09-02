@@ -9,9 +9,6 @@ from setuptools import (
 with open('README.md', 'r', encoding='utf-8') as read_me:
     long_description = read_me.read()
 
-with open('requirements/project.txt', 'r') as f:
-    requirements = f.read().splitlines()
-
 with open('.project-version', 'r') as project_version_file:
     project_version = project_version_file.read().strip()
 
@@ -31,7 +28,6 @@ setup(
     author='Dmytro Striletskyi',
     author_email='dmytro.striletskyi@gmail.com',
     packages=find_packages(),
-    install_requires=requirements,
     classifiers=[
         'Operating System :: OS Independent',
         'Intended Audience :: Developers',
