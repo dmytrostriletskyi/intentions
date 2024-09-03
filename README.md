@@ -8,6 +8,6 @@ RSpec-inspired BDD-like syntax sugar to force more descriptive test cases and ex
 [![](https://img.shields.io/pypi/l/intentions.svg)](https://pypi.python.org/pypi/intentions/)
 [![](https://img.shields.io/pypi/pyversions/intentions.svg)](https://pypi.python.org/pypi/intentions/)
 
-![](./assets/test-example.png)
+<img src="./assets/test-example.png" width=50% height=50%>
 
 Table of content:
