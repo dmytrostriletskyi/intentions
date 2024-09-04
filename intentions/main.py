@@ -10,8 +10,14 @@ class AbstractIntention:
     Abstract intention implementation.
     """
 
-    def __init__(self, message: str) -> None:
-        self.message = message
+    def __init__(self, description: str) -> None:
+        """
+        Construct the object.
+
+        Arguments:
+            description (str): a description of the intention.
+        """
+        self.description = description
 
     def __enter__(self) -> 'AbstractIntention':
         return self
@@ -34,13 +40,13 @@ class when(AbstractIntention):
 
 class case(AbstractIntention):
     """
-    "case" intention implementation.
+    "Case" intention implementation.
     """
     pass
 
 
 class expect(AbstractIntention):
     """
-    "expect" intention implementation.
+    "Expect" intention implementation.
     """
     pass
