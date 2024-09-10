@@ -1,8 +1,17 @@
+from __future__ import annotations
+
 from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
     Optional,
-    Type,
+    TypeVar,
 )
-from types import TracebackType
+
+if TYPE_CHECKING:
+    from types import TracebackType
+
+T = TypeVar('T')
 
 
 class AbstractIntention:
@@ -19,15 +28,15 @@ class AbstractIntention:
         """
         self.description = description
 
-    def __enter__(self) -> 'AbstractIntention':
+    def __enter__(self) -> AbstractIntention:
         return self
 
     def __exit__(
         self,
-        exc_type: Optional[Type[BaseException]],
+        exc_type: Optional[type[BaseException]],
         exc_value: Optional[BaseException],
         traceback: Optional[TracebackType],
-    ):
+    ) -> None:
         return
 
 
@@ -35,18 +44,24 @@ class when(AbstractIntention):
     """
     "When" intention implementation.
     """
-    pass
 
 
 class case(AbstractIntention):
     """
     "Case" intention implementation.
     """
-    pass
 
 
 class expect(AbstractIntention):
     """
     "Expect" intention implementation.
     """
-    pass
+
+
+def describe(object: str, domain: str) -> Callable[[Callable[..., T]], Callable[..., T]]:  # noqa: ARG001
+    def decorator(func: [..., T]) -> Callable[..., T]:
+        def wrapper(*args: tuple[Any, ...], **kwargs: dict[str, Any]) -> T:
+            result = func(*args, **kwargs)
+            return result
+        return wrapper
+    return decorator

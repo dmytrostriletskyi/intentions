@@ -16,12 +16,19 @@ ignore = [
     "UP007",
     "C901",
     "PTH109",
+    "PERF402",
+    "ANN101",
 ]
 
 [tool.ruff.per-file-ignores]
 "__init__.py" = [
     "D104",
     "F401",
+]
+"main.py" = [
+    "N801",
+    "PLR0912",
+    "PLW2901",
 ]
 
 [tool.ruff.flake8-quotes]

@@ -1,0 +1,28 @@
+from dataclasses import dataclass
+
+from intentions.render.enums import Intention
+
+
+@dataclass
+class Describe:
+    object: str  # noqa: A003
+    domain: str
+
+
+@dataclass
+class TestCaseIntention:
+
+    type: Intention  # noqa: A003
+    code_line: int
+    description: str
+
+
+@dataclass
+class TestCase:
+
+    file_path: str
+    class_name: str
+    class_code_line: int
+    function_name: str
+    function_code_line: int
+    intentions: list[TestCaseIntention]
