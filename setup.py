@@ -6,6 +6,9 @@ from setuptools import (
     setup,
 )
 
+DESCRIPTION = 'Next-gen Arrange-Act-Assert to structure test cases and force software engineers to ' \
+              'express explicit intentions in BDD style.'
+
 with open('README.md', 'r', encoding='utf-8') as read_me:
     long_description = read_me.read()
 
@@ -15,7 +18,7 @@ with open('.project-version', 'r') as project_version_file:
 setup(
     version=project_version,
     name='intentions',
-    description='RSpec-inspired BDD-like syntax sugar to force more descriptive test cases and explicit intentions.',
+    description=DESCRIPTION,
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/dmytrostriletskyi/intentions',
