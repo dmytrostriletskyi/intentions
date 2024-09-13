@@ -6,7 +6,7 @@ from intentions import (
 )
 
 
-@describe(object='Accounts Service', domain='accounts')
+@describe(domain='accounts', component='accounts', layer='service')
 class TestAccountsService:
 
     def test_transfer_money_with_insufficient_balance(self):
@@ -30,7 +30,7 @@ class TestAccountsService:
             pass
 
 
-@describe(object='Accounts Service', domain='accounts')
+@describe(domain='accounts', component='accounts', layer='service')
 def test_transfer_money_to_non_existing_receiver_account():
     with when('Receiver account does not exist'):
         pass
@@ -42,7 +42,7 @@ def test_transfer_money_to_non_existing_receiver_account():
         pass
 
 
-@describe(object='Investments Service', domain='investments')
+@describe(domain='investments', component='investments', layer='service')
 class TestInvestmentsService:
 
     def test_invest_money_into_stocks(self):
@@ -60,7 +60,7 @@ class TestInvestmentsService:
             pass
 
 
-@describe(object='Investments Service', domain='investments')
+@describe(domain='investments', component='investments', layer='service')
 def test_invest_into_non_existing_stocks():
     with when('Stock to buy does not exist'):
         pass
@@ -83,6 +83,6 @@ def test_invest_into_non_existing_crypto():
         pass
 
 
-@describe(object='Investments Service', domain='investments')
+@describe(domain='investments', component='investments', layer='service')
 def test_sum():
     assert 4 == 2 + 2

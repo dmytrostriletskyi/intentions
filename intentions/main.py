@@ -58,7 +58,7 @@ class expect(AbstractIntention):
     """
 
 
-def describe(object: str, domain: str) -> Callable[[Callable[..., T]], Callable[..., T]]:  # noqa: ARG001
+def describe(domain: str, component: str, layer: str) -> Callable[[Callable[..., T]], Callable[..., T]]:  # noqa: ARG001
     def decorator(func: [..., T]) -> Callable[..., T]:
         def wrapper(*args: tuple[Any, ...], **kwargs: dict[str, Any]) -> T:
             result = func(*args, **kwargs)
