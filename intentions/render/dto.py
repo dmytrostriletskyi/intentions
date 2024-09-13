@@ -5,8 +5,9 @@ from intentions.render.enums import Intention
 
 @dataclass
 class Describe:
-    object: str  # noqa: A003
     domain: str
+    component: str
+    layer: str
 
 
 @dataclass

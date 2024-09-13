@@ -25,8 +25,8 @@ class TestRender:
             assert intentions_json['investments'] is not None
 
         with expect('Each intentions JSON domain consist of its objects'):
-            assert intentions_json['accounts']['Accounts Service']
-            assert intentions_json['investments']['Investments Service']
+            assert intentions_json['accounts']['accounts']['service']
+            assert intentions_json['investments']['investments']['service']
 
     def test_create_intentions_json_accounts_service(self, remove_intentions_json) -> None:
         with when('Tests folder with tests for accounts service exist'):
@@ -64,7 +64,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['accounts']['Accounts Service']
+            assert expected_test_case in intentions_json['accounts']['accounts']['service']
 
         with expect('Test transfer money with sufficient balance test case is in accounts service test cases'):
             expected_test_case = {
@@ -92,7 +92,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['accounts']['Accounts Service']
+            assert expected_test_case in intentions_json['accounts']['accounts']['service']
 
         with expect('Test transfer money to non existing receiver account test case is in accounts service test cases'):
             expected_test_case = {
@@ -120,7 +120,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['accounts']['Accounts Service']
+            assert expected_test_case in intentions_json['accounts']['accounts']['service']
 
     def test_create_intentions_json_investments_service(self, remove_intentions_json) -> None:
         with when('Tests folder with tests for investments service exist'):
@@ -153,7 +153,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['investments']['Investments Service']
+            assert expected_test_case in intentions_json['investments']['investments']['service']
 
         with expect('Invest money into crypto test case is in investments service test cases'):
             expected_test_case = {
@@ -176,7 +176,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['investments']['Investments Service']
+            assert expected_test_case in intentions_json['investments']['investments']['service']
 
         with expect('Invest money into non-existing stocks test case is in investments service test cases'):
             expected_test_case = {
@@ -204,7 +204,7 @@ class TestRender:
                 ]
             }
 
-            assert expected_test_case in intentions_json['investments']['Investments Service']
+            assert expected_test_case in intentions_json['investments']['investments']['service']
 
     def test_create_intentions_json_ignore_test_cases_without_intentions(self, remove_intentions_json) -> None:
         with when('Tests folder with described test cases without intentions'):
@@ -226,4 +226,4 @@ class TestRender:
                 'intentions': [],
             }
 
-            assert expected_test_case not in intentions_json['investments']['Investments Service']
+            assert expected_test_case not in intentions_json['investments']['investments']['service']

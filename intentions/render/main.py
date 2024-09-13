@@ -92,8 +92,11 @@ def collect_test_cases(storage: dict, file: Path) -> None:
         if describe.domain not in storage:
             storage[describe.domain] = {}
 
-        if describe.object not in storage[describe.domain]:
-            storage[describe.domain][describe.object] = []
+        if describe.component not in storage[describe.domain]:
+            storage[describe.domain][describe.component] = {}
+
+        if describe.layer not in storage[describe.domain][describe.component]:
+            storage[describe.domain][describe.component][describe.layer] = []
 
         test_function = TestCase(
             function_name=function_node.name,
@@ -105,7 +108,7 @@ def collect_test_cases(storage: dict, file: Path) -> None:
         )
 
         test_case_as_dict = asdict(test_function)
-        storage[describe.domain][describe.object].append(test_case_as_dict)
+        storage[describe.domain][describe.component][describe.layer].append(test_case_as_dict)
 
 
 def create_intentions_json(directory: str) -> None:

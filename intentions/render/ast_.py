@@ -63,12 +63,14 @@ class AstNodeVisitor(ast.NodeVisitor):
             if decorator.func.id != 'describe':
                 continue
 
-            assert decorator.keywords[0].arg == 'object'  # noqa: S101
-            assert decorator.keywords[1].arg == 'domain'  # noqa: S101
+            assert decorator.keywords[0].arg == 'domain'  # noqa: S101
+            assert decorator.keywords[1].arg == 'component'  # noqa: S101
+            assert decorator.keywords[2].arg == 'layer'  # noqa: S101
 
             return Describe(
-                object=decorator.keywords[0].value.value,
-                domain=decorator.keywords[1].value.value,
+                domain=decorator.keywords[0].value.value,
+                component=decorator.keywords[1].value.value,
+                layer=decorator.keywords[2].value.value,
             )
 
         return None
