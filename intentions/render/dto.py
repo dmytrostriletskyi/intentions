@@ -24,6 +24,7 @@ class TestCase:
     file_path: str
     class_name: str
     class_code_line: int
+    case_name: str
     function_name: str
     function_code_line: int
     intentions: list[TestCaseIntention]

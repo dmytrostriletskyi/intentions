@@ -10,7 +10,10 @@ from intentions.render.dto import (
 )
 from intentions.render.encoders import JsonEncoderWithEnumSupport
 from intentions.render.enums import Intention
-from intentions.utils import is_test_function
+from intentions.utils import (
+    convert_test_function_name_to_case_name,
+    is_test_function,
+)
 
 
 def collect_test_files(directory: str) -> list[Path]:
@@ -99,6 +102,7 @@ def collect_test_cases(storage: dict, file: Path) -> None:
             storage[describe.domain][describe.component][describe.layer] = []
 
         test_function = TestCase(
+            case_name=convert_test_function_name_to_case_name(test_function_name=function_node.name),
             function_name=function_node.name,
             function_code_line=function_node.lineno,
             intentions=test_case_intentions,
