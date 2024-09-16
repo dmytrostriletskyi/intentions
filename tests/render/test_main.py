@@ -43,6 +43,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': 'TestAccountsService',
                 'class_code_line': 10,
+                'case_name': 'Transfer money with insufficient balance',
                 'function_name': 'test_transfer_money_with_insufficient_balance',
                 'function_code_line': 12,
                 'intentions': [
@@ -71,6 +72,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': 'TestAccountsService',
                 'class_code_line': 10,
+                'case_name': 'Transfer money with sufficient balance',
                 'function_name': 'test_transfer_money_with_sufficient_balance',
                 'function_code_line': 22,
                 'intentions': [
@@ -99,6 +101,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': None,
                 'class_code_line': None,
+                'case_name': 'Transfer money to non existing receiver account',
                 'function_name': 'test_transfer_money_to_non_existing_receiver_account',
                 'function_code_line': 34,
                 'intentions': [
@@ -137,6 +140,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': 'TestInvestmentsService',
                 'class_code_line': 46,
+                'case_name': 'Invest money into stocks',
                 'function_name': 'test_invest_money_into_stocks',
                 'function_code_line': 48,
                 'intentions': [
@@ -160,6 +164,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': 'TestInvestmentsService',
                 'class_code_line': 46,
+                'case_name': 'Invest money into crypto',
                 'function_name': 'test_invest_money_into_crypto',
                 'function_code_line': 55,
                 'intentions': [
@@ -183,6 +188,7 @@ class TestRender:
                 'file_path': 'fixtures/test_file.py',
                 'class_name': None,
                 'class_code_line': None,
+                'case_name': 'Invest into non existing stocks',
                 'function_name': 'test_invest_into_non_existing_stocks',
                 'function_code_line': 64,
                 'intentions': [
