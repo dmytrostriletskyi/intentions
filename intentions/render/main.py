@@ -44,6 +44,7 @@ def collect_test_cases(storage: dict, file: Path) -> None:
             continue
 
         test_case_intentions = []
+        test_case_case_description = None
 
         for node in function_node.body:
             if not isinstance(node, ast.With):
@@ -62,6 +63,9 @@ def collect_test_cases(storage: dict, file: Path) -> None:
 
                 with_node_item_code_line = with_node_item.context_expr.args[0].lineno
                 with_node_item_description = with_node_item.context_expr.args[0].value
+
+                if with_node_item_name == 'case':
+                    test_case_case_description = with_node_item_description
 
                 test_sase_intention = TestCaseIntention(
                     type=Intention(with_node_item_name),
@@ -99,7 +103,10 @@ def collect_test_cases(storage: dict, file: Path) -> None:
             storage[describe.domain][describe.component] = {}
 
         if describe.layer not in storage[describe.domain][describe.component]:
-            storage[describe.domain][describe.component][describe.layer] = []
+            storage[describe.domain][describe.component][describe.layer] = {}
+
+        if test_case_case_description not in storage[describe.domain][describe.component][describe.layer]:
+            storage[describe.domain][describe.component][describe.layer][test_case_case_description] = []
 
         test_function = TestCase(
             case_name=convert_test_function_name_to_case_name(test_function_name=function_node.name),
@@ -112,7 +119,10 @@ def collect_test_cases(storage: dict, file: Path) -> None:
         )
 
         test_case_as_dict = asdict(test_function)
-        storage[describe.domain][describe.component][describe.layer].append(test_case_as_dict)
+
+        storage[describe.domain][describe.component][describe.layer][test_case_case_description].append(
+            test_case_as_dict,
+        )
 
 
 def create_intentions_json(directory: str) -> None:
